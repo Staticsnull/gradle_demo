@@ -1,0 +1,11 @@
+﻿<div th:replace="common/head"
+     xmlns:th="http://www.w3.org/1999/xhtml" ></div>
+    <div class="right">
+        <img class="wColck" src="/images/clock.jpg" alt=""/>
+        <div class="wFont">
+            <h2 th:text="${session.userSession.userName }" xmlns:th="http://www.w3.org/1999/xhtml" ></h2>
+            <p>欢迎来到超市订单管理系统!</p>
+        </div>
+    </div>
+</section>
+<div th:replace="common/foot" xmlns:th="http://www.w3.org/1999/xhtml"></div>

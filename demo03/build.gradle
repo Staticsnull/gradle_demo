@@ -1,0 +1,36 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group = 'cn.smbms'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    //使用springboot映射静态文件时 需要必须要导入thymeleaf标签
+    //同时 静态页面必须置于 templates目录下
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    //mybatis-plus-boot-starter
+    compile group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.3.0'
+    //mysql-connector-java
+    runtime group: 'mysql', name: 'mysql-connector-java'
+    //spring-boot-devtools
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compile group: 'org.projectlombok', name: 'lombok'
+    //引入子模块 compile project(":子模块名称")
+
+}
+
+test {
+    useJUnitPlatform()
+}

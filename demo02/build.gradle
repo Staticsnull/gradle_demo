@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+plugins {
+    id 'java'
+    id 'war'
+}
+apply plugin: 'org.akhikhl.gretty'
+compileJava.options.encoding('utf-8')
+gretty {
+    // supported values:使用tomcat插件
+    servletContainer = 'tomcat7'
+    httpPort = 8081
+    contextPath = '/'
+}
+group 'cn.bdqn'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // javax.servlet-api
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+    //mysql-connector-java
+    runtime group: 'mysql', name: 'mysql-connector-java', version: '5.1.46'
+    //jstl
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    //fastjson
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.47'
+
+
+}

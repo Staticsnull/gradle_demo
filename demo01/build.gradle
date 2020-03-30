@@ -1,0 +1,59 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+plugins {
+    id 'java'
+    id 'war'
+}
+apply plugin: 'org.akhikhl.gretty'
+compileJava.options.encoding('utf-8')
+gretty {
+    // supported values:
+    servletContainer = 'tomcat8'
+    httpPort = 8082
+    contextPath = '/'
+}
+group 'cn.smbms'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    //mybatis-plus
+    compile group: 'com.baomidou', name: 'mybatis-plus', version: '3.3.1'
+    //spring-context
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.5.RELEASE'
+    //spring-test
+    testCompile group: 'org.springframework', name: 'spring-test', version: '5.1.5.RELEASE'
+    //spring-jdbc
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '5.1.5.RELEASE'
+    //spring-aspects
+    compile group: 'org.springframework', name: 'spring-aspects', version: '5.1.5.RELEASE'
+    //HikariCP
+    compile group: 'com.zaxxer', name: 'HikariCP', version: '3.4.2'
+    //mysql-connector-java
+    runtime group: 'mysql', name: 'mysql-connector-java', version: '5.1.46'
+    //slf4j-nop
+    compile group: 'org.slf4j', name: 'slf4j-nop', version: '1.7.25'
+    // javax.servlet-api
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+    //jstl
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    //jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
+
+
+}
